@@ -1,0 +1,17 @@
+[
+  {
+    "id": "location",
+    "question": "Where is the clinic located?",
+    "answer": "The clinic is located at 123 Health Street, New Delhi."
+  },
+  {
+    "id": "timings",
+    "question": "What are the clinic hours?",
+    "answer": "The clinic operates from 9 AM to 6 PM, Monday to Saturday."
+  },
+  {
+    "id": "parking",
+    "question": "Is parking available?",
+    "answer": "Yes, free parking is available for patients in the basement."
+  }
+]
