@@ -1,9 +1,17 @@
 import chromadb
+from chromadb.config import Settings
 from sentence_transformers import SentenceTransformer
 
-client = chromadb.Client()
-collection = client.get_collection("clinic_faq")
+client = chromadb.Client(
+    Settings(
+        persist_directory="chroma_db",
+        anonymized_telemetry=False
+    )
+)
+
+collection = client.get_or_create_collection("clinic_faq")
 model = SentenceTransformer("all-MiniLM-L6-v2")
+
 
 def retrieve_context(query: str, k: int = 3):
     embedding = model.encode(query).tolist()

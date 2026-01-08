@@ -1,10 +1,19 @@
 import json
 import chromadb
+from chromadb.config import Settings
 from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
-client = chromadb.Client()
+
+client = chromadb.Client(
+    Settings(
+        persist_directory="chroma_db",
+        anonymized_telemetry=False
+    )
+)
+
 collection = client.get_or_create_collection("clinic_faq")
+
 
 def ingest_faq():
     with open("data/clinic_info.json") as f:
